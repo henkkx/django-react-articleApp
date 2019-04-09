@@ -14,7 +14,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <CustomLayout>
-            <ArticleListView/>
+            <BaseRouter/>
           </CustomLayout>
         </Router>
       </div>
