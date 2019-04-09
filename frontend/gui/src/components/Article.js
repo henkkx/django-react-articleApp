@@ -1,16 +1,7 @@
 import React from 'react'
 import { List, Avatar, Icon } from 'antd';
 
-const listData = [];
-for (let i = 0; i < 23; i++) {
-  listData.push({
-    href: 'http://ant.design',
-    title: `ant design part ${i}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description: 'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content: 'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-  });
-}
+
 
 const IconText = ({ type, text }) => (
   <span>
@@ -19,7 +10,8 @@ const IconText = ({ type, text }) => (
   </span>
 );
 
-const Article = (props) => {
+const Articles = (props) => {
+    
     return (
         <List
             itemLayout="vertical"
@@ -30,12 +22,12 @@ const Article = (props) => {
             },
             pageSize: 3,
             }}
-            dataSource={listData}
+            dataSource={props.data}
             footer={<div><b>ant design</b> footer part</div>}
             renderItem={item => (
             <List.Item
                 key={item.title}
-                actions={[<IconText type="star-o" text="156" />, <IconText type="like-o" text="156" />, <IconText type="message" text="2" />]}
+                actions={[<IconText type="star-o" text={item.favorites} />, <IconText type="like-o" text={item.likes} />, <IconText type="message" text={item.n_comments} />]}
                 extra={<img width={272} alt="logo" src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png" />}
             >
                 <List.Item.Meta
@@ -50,4 +42,4 @@ const Article = (props) => {
     )
 }
   
-export default Article;
+export default Articles;
